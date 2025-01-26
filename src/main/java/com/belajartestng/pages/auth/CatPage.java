@@ -29,6 +29,9 @@ public class CatPage {
     @FindBy(xpath = "//*[@id=\"category_form\"]/div/p")
     WebElement txtError;
 
+    @FindBy(xpath = "//*[@id=\"content-start\"]/ul/li")
+    WebElement txtBerhasil;
+
     public CatPage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -62,6 +65,15 @@ public class CatPage {
     public String getTxtError(){
         waitForTxtError();
         return txtError.getText();
+    }
+
+    public void waitForTxtBerhasil(){
+        By locator = By.xpath("//*[@id=\"content-start\"]/ul/li");
+    }
+
+    public String getTxtBerhasil(){
+        waitForTxtBerhasil();
+        return txtBerhasil.getText();
     }
 
 }

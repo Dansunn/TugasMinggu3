@@ -50,6 +50,12 @@ public class SignInTest {
         String Expected = "Welcome to Demo SQA Testing Portal";
         String Actual = dashboardPage.getTextWelcomeHeading();
 
+        if(Actual.equals(Expected)){
+            System.out.println("Login Berhasil");
+        }
+        else {
+            System.out.println("Login Tidak Berhasil");
+        }
         Assert.assertTrue(Actual.toLowerCase().equals(Expected.toLowerCase()));
 
     }

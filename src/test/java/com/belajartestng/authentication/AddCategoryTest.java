@@ -51,10 +51,22 @@ public class AddCategoryTest {
 
     @Test (priority = 1)
     public void testAddCategory() throws InterruptedException {
-      catPage.clickLinkCategory();
-      catPage.clickBtnAddCategory();
-      catPage.fillFieldNameCat("Kesehatan");
-      catPage.clickBtnSaveCat();
+        catPage.clickLinkCategory();
+        catPage.clickBtnAddCategory();
+        catPage.fillFieldNameCat("Kesehatan");
+        catPage.clickBtnSaveCat();
+
+        String actual = catPage.getTxtBerhasil();
+        String expected = "was added successfully";
+
+        if(actual.contains(expected)){
+            System.out.println("Add Category sudah benar");
+        }
+        else{
+            System.out.println("Add Category terdapat kesalahan");
+            Assert.fail("Perbandingan Gagal, actual tidak sesuai dengan expected");
+        }
+        Assert.assertTrue(actual.contains(expected));
     }
 
 }
