@@ -37,10 +37,14 @@ public class ProductPage {
     @FindBy(xpath = "//input[@name='stock']")
     WebElement inputStock;
 
-
-
     @FindBy(xpath = "//*[@id=\"product_form\"]/div/div/input[2]")
     WebElement btnSaveAddAnother;
+
+    @FindBy(xpath = "//th[@class='field-title']/a[text()='Betadine 50ml']")
+    WebElement produkBetadine;
+
+    @FindBy(xpath = "//input[@value='Save']")
+    WebElement btnSave;
 
     public ProductPage(WebDriver driver){
         this.driver = driver;
@@ -67,7 +71,6 @@ public class ProductPage {
     public void pilihKategori(String namaKategori) throws InterruptedException {
         try {
             wait.until(ExpectedConditions.visibilityOf(selectCategory));
-
             Select dropdown = new Select(selectCategory);
             dropdown.selectByVisibleText(namaKategori);
         } catch (Exception e) {
@@ -96,5 +99,34 @@ public class ProductPage {
         Thread.sleep(1500);
     }
 
+    public void clickBtnSave() throws InterruptedException {
+        btnSave.click();
+        Thread.sleep(1000);
+    }
+
+    public void changeProduct() throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        produkBetadine.click();
+        Thread.sleep(1000);
+    }
+
+    public void clearFieldTitle(String namaProdukBaru) throws InterruptedException {
+        fieldTitle.clear();
+        Thread.sleep(1000);
+        fieldTitle.sendKeys(namaProdukBaru);
+        Thread.sleep(1000);
+    }
+
+    public void clearFieldPrice(String hargaProdukBaru) throws InterruptedException {
+        inputPrice.clear();
+        inputPrice.sendKeys(hargaProdukBaru);
+        Thread.sleep(1000);
+    }
+
+    public void clearFieldStock(String stokProductBaru) throws InterruptedException {
+        inputStock.clear();
+        inputStock.sendKeys(stokProductBaru);
+        Thread.sleep(1000);
+    }
 
 }

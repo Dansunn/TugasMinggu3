@@ -24,9 +24,9 @@ public class AddProductTest {
         productPage.clickLinkProducts();
         productPage.clickBtnAddProduct();
         productPage.fillFieldTitle("Betadine 50ml");
-        productPage.pilihKategori("Kesehatan");
+        productPage.pilihKategori("Obat");
         productPage.inputPrice("12000");
         productPage.inputStock("526");
-        productPage.clickBtnSaveAddAnother();
+        productPage.clickBtnSave();
     }
 }

@@ -32,6 +32,9 @@ public class CatPage {
     @FindBy(xpath = "//*[@id=\"content-start\"]/ul/li")
     WebElement txtBerhasil;
 
+    @FindBy(xpath = "//th[@class='field-name']/a[text()='Kesehatan']")
+    WebElement kategoriKesehatan;
+
     public CatPage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -76,4 +79,14 @@ public class CatPage {
         return txtBerhasil.getText();
     }
 
+    public void editKategoriKesehatan(String kategoriBaru) throws InterruptedException {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        kategoriKesehatan.click();
+        Thread.sleep(1000);
+        fieldNameCategory.clear();
+        Thread.sleep(1000);
+        fieldNameCategory.sendKeys(kategoriBaru);
+        btnSaveCategory.click();
+        Thread.sleep(1000);
+    }
 }

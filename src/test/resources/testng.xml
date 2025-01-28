@@ -5,7 +5,9 @@
         <classes>
             <class name="com.belajartestng.authentication.SignInTest" />
             <class name="com.belajartestng.authentication.AddCategoryTest" />
+            <class name="com.belajartestng.authentication.CatChangeTest" />
             <class name="com.belajartestng.authentication.AddProductTest" />
+            <class name="com.belajartestng.authentication.ProductChangeTest" />
             <class name="com.belajartestng.authentication.LogOutTest" />
         </classes>
     </test>
